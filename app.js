@@ -8,13 +8,26 @@ const io = new Server(server);
 
 app.use(express.static(`${__dirname}/public`));
 
+const users = [];
+
 io.on("connection", (socket) => {
-  io.emit("enter");
-  socket.on("message", (msg) => {
-    io.emit("message", msg);
+  socket.on("message", (payload) => {
+    io.emit("message", { nickname: payload.nickname, msg: payload.msg });
+  });
+  socket.on("login", (nickname) => {
+    if (users.includes(nickname)) {
+      io.emit("taken", "This nickname is already taken");
+    } else {
+      users.push(nickname);
+      socket.nickname = nickname;
+      io.emit("enter", nickname);
+    }
   });
   socket.on("disconnect", () => {
-    io.emit("exit");
+    users.splice(users.indexOf(socket.nickname, 1));
+    if (socket.nickname) {
+      io.emit("exit", socket.nickname);
+    }
   });
 });
 

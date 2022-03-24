@@ -60,3 +60,7 @@ button:hover {
   margin: 40px;
   color: #1d3557;
 }
+
+#error {
+  color :#e63946;
+}
