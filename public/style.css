@@ -5,14 +5,21 @@ body {
   font-family: Roboto, Calibri, Arial;
 }
 
+header {
+  background: #a8dadc;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
 button:hover {
   cursor: pointer;
   opacity: 90%;
 }
 
 #form {
-  background: #457b9d;
   padding: 2px;
+  background: #1d3557;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -21,46 +28,56 @@ button:hover {
   height: 50px;
 }
 
+#form > button {
+  border: 0;
+  padding: 10px;
+  margin: 2px;
+  border-radius: 6px;
+  outline: none;
+  background: #f1faee;
+  color: #1d3557;
+}
+
 #input {
   border: none;
-  padding: 0 1rem;
+  background: #f1faee;
+  padding: 10px;
   flex-grow: 1;
-  border-radius: 2rem;
-  margin: 0.25rem;
+  border-radius: 24px;
+  margin: 2px;
 }
 
 #input:focus {
   outline: none;
 }
 
-#form > button {
-  background: #f1faee;
-  border: 0;
-  padding: 10px;
-  margin: 0.25rem;
-  border-radius: 3px;
-  outline: none;
-  color: #1d3557;
-}
-
 #messages {
-  list-style-type: none;
-  margin: 0;
+  color: #1d3557;
+  height: auto;
+  margin: auto;
 }
 
-#messages > li {
+.message {
+  padding: 10px 20px;
+  border: 1px solid #a8dadc;
+}
+
+#updates,
+#typing,
+#error {
+  margin: auto;
+  color: #1d3557;
+  width: 300px;
+  height: 20px;
   padding: 10px 20px;
 }
 
-#messages > li:nth-child(odd) {
-  background: #a8dadc;
-}
-
-#updates {
-  margin: 40px;
-  color: #1d3557;
-}
-
 #error {
-  color :#e63946;
+  color: #e63946;
+}
+
+@media (min-width: 900px) {
+  #messages {
+    width: 600px;
+  }
 }

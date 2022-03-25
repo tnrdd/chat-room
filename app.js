@@ -16,11 +16,18 @@ io.on("connection", (socket) => {
   });
   socket.on("login", (nickname) => {
     if (users.includes(nickname)) {
-      io.emit("taken", "This nickname is already taken");
+      socket.emit("taken", "This nickname is already taken");
     } else {
       users.push(nickname);
       socket.nickname = nickname;
       io.emit("enter", nickname);
+    }
+  });
+  socket.on("typing", (isTyping) => {
+    if (isTyping) {
+      io.emit("typing", socket.nickname);
+    } else {
+      io.emit("typing", null);
     }
   });
   socket.on("disconnect", () => {
