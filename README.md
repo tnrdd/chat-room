@@ -1,6 +1,6 @@
 # chatroom
 
-Small app where an user can pick a nickname, join the room and start chatting away.
+Small app where an user can pick a nickname, join the room and start chatting right away with other connected users. 
 
 ## Install
 ```
