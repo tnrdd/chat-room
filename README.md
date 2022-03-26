@@ -6,7 +6,7 @@ Small app where an user can pick a nickname, join the room and start chatting ri
 ```
 $ git clone https://github.com/tnrdd/chatroom.git
 $ cd chatroom
-$ npm istall
+$ npm install
 ```
 ## Run
 
